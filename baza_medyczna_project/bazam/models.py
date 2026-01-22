@@ -19,7 +19,6 @@ class MedicalProcedures(models.Model):
     description = models.TextField(help_text="Opis procedury medycznej.")
     cost = models.DecimalField(max_digits=10, decimal_places=2, help_text="Koszt procedury medycznej.")
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, help_text="Lekarz wykonujący procedurę.")
-    date = models.DateField(help_text="Data wykonania procedury.")
     date = models.DateTimeField(help_text="Data i czas wykonania procedury.")
 
     def __str__(self):
