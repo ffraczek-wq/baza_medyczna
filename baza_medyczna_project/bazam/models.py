@@ -29,3 +29,12 @@ class MedicalProcedures(models.Model):
     def __str__(self):
         return self.procedure_name
 
+
+class leki(models.Model):
+    nazwa_leku = models.CharField(max_length=100, help_text="Nazwa leku.")
+    opis = models.TextField(help_text="Opis leku.")
+    dawkowanie = models.CharField(max_length=100, help_text="Dawkowanie leku.")
+    producent = models.CharField(max_length=100, help_text="Producent leku.")
+
+    def __str__(self):
+        return self.nazwa_leku
