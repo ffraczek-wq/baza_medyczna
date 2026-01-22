@@ -1,6 +1,16 @@
 from django.contrib import admin
+from .models import Lekarz, Zabiegi, Osoba, Pacjent
 
-from .models import Doctor, MedicalProcedures
+class OsobaAdmin(admin.ModelAdmin):
+    list_display = ["imie" , "nazwisko" , "stanowisko"]
+    list_filter = ["stanowisko" , "data_dodania"]
 
-admin.site.register(Doctor)
-admin.site.register(MedicalProcedures)
+admin.site.register(Osoba, OsobaAdmin)
+
+
+
+admin.site.register(Lekarz)
+admin.site.register(Zabiegi)
+admin.site.register(Pacjent)
+
+
