@@ -2,7 +2,14 @@ from django.db import models
 
 
 
+class Osoba(models.Model):
+    imie = models.CharField(max_length=50, help_text="Imię osoby.")
+    nazwisko = models.CharField(max_length=50, help_text="Nazwisko osoby.")
+    stanowisko = models.CharField(max_length=100, help_text="Stanowisko osoby w organizacji.")
+    data_dodania = models.DateTimeField(auto_now_add=True, help_text="Data dodania rekordu.")
 
+    def __str__(self):
+        return f"{self.imie} {self.nazwisko} - {self.stanowisko}"
 
 
 class Doctor(models.Model):
@@ -24,3 +31,12 @@ class MedicalProcedures(models.Model):
     def __str__(self):
         return self.procedure_name
 
+class Pacjent(models.Model):
+    first_name = models.CharField(max_length=50, help_text="Imię pacjenta.")
+    last_name = models.CharField(max_length=50, help_text="Nazwisko pacjenta.")
+    date_of_birth = models.DateField(help_text="Data urodzenia pacjenta.")
+    patient_id = models.CharField(max_length=20, unique=True, help_text="pesel pacjenta.")
+    patient_mail = models.EmailField(help_text="Email pacjenta.")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.patient_id}"
