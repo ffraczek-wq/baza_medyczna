@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, MedicalProcedures, Osoba, Pacjent
+from .models import Lekarz, Zabiegi, Osoba, Pacjent
 
 class OsobaAdmin(admin.ModelAdmin):
     list_display = ["imie" , "nazwisko" , "stanowisko"]
@@ -9,8 +9,8 @@ admin.site.register(Osoba, OsobaAdmin)
 
 
 
-admin.site.register(Doctor)
-admin.site.register(MedicalProcedures)
+admin.site.register(Lekarz)
+admin.site.register(Zabiegi)
 admin.site.register(Pacjent)
 
 
