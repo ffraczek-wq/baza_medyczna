@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def lista_doktorow(request):
+    doctors = Doctor.objects.all()
+    return render(request, 'bazam/lista_doktorow.html', {'doctors': doctors})
