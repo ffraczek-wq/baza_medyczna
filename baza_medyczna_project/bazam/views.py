@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Lekarz
 
 def lista_doktorow(request):
     from .models import Lekarz

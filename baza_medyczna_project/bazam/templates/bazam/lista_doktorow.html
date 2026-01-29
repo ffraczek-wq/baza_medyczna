@@ -14,7 +14,7 @@
             </div>
             
             <div class="card-body">
-                {% if doctors %}
+                {% if lekarze %}
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -24,12 +24,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for doctor in doctors %}
+                            {% for Lekarz in lekarze %}
                                 <tr>
-                                    <td>{{ doctor.first_name }}</td>
-                                    <td><strong>{{ doctor.last_name }}</strong></td>
+                                    <td>{{ Lekarz.Imie }}</td>
+                                    <td><strong>{{ Lekarz.Nazwisko }}</strong></td>
                                     <td>
-                                        <span class="badge bg-info text-dark">{{ doctor.specialty }}</span>
+                                        <span class="badge bg-info text-dark">{{ Lekarz.Specjalizacja }}</span>
                                     </td>
                                 </tr>
                             {% endfor %}
