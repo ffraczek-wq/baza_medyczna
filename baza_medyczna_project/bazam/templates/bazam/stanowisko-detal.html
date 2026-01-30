@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły: {{ stanowisko.nazwa }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html { 
+            height: 100%; 
+            background-color: #f8f9fa;
+        }
+        /* Centrowanie w pionie i poziomie */
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header bg-primary text-white text-center py-3">
+                            <h2 class="h4 m-0">Szczegóły Stanowiska</h2>
+                        </div>
+                        
+                        <div class="card-body p-4 text-center">
+                            <h3 class="card-title fw-bold text-dark mb-3">{{ stanowisko.nazwa }}</h3>
+                            
+                            <p class="card-text text-muted mb-4">
+                                {{ stanowisko.opis|default:"Brak dodatkowego opisu dla tego stanowiska." }}
+                            </p>
+                            
+                            <hr class="my-4">
+                            
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'stanowisko-lista' %}" class="btn btn-outline-primary">
+                                    Wróć do listy stanowisk
+                                </a>
+                                <a href="{% url 'strona_glowna' %}" class="btn btn-link text-decoration-none text-muted">
+                                    Wróć na stronę główną
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

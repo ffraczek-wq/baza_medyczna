@@ -2,14 +2,22 @@ from django.db import models
 
 
 
+class Stanowisko(models.Model):
+    nazwa = models.CharField(max_length=100, help_text="Nazwa stanowiska, np. Kierownik.")
+    opis = models.TextField(blank=True, null=True, help_text="Opcjonalny opis stanowiska.")
+
+    def __str__(self):
+        return self.nazwa
+
 class Osoba(models.Model):
     imie = models.CharField(max_length=50, help_text="Imię osoby.")
     nazwisko = models.CharField(max_length=50, help_text="Nazwisko osoby.")
-    stanowisko = models.CharField(max_length=100, help_text="Stanowisko osoby w organizacji.")
+    stanowisko = models.ForeignKey(Stanowisko, on_delete=models.SET_NULL, null=True, blank=True, help_text="Stanowisko osoby w organizacji.")
     data_dodania = models.DateTimeField(auto_now_add=True, help_text="Data dodania rekordu.")
 
     def __str__(self):
-        return f"{self.imie} {self.nazwisko} - {self.stanowisko}"
+        stanowisko_nazwa = self.stanowisko.nazwa if self.stanowisko else "Brak stanowiska"
+        return f"{self.imie} {self.nazwisko} - {stanowisko_nazwa}"
 
 
 class Lekarz(models.Model):
