@@ -21,16 +21,23 @@
 
     
 
-    <div class="hero-section text-center">
-        <a href="/admin/" class="btn btn-outline-secondary btn-sm position-absolute top-0 end-0 m-3">
+    <div class="hero-section text-center position-relative">
+        <a href="/admin/" class="btn btn-outline-secondary btn-sm position-absolute bottom-0 start-0 m-3">
             ⚙️ Panel Administratora
+            
+        
         </a>
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'pokaz-koszyk' %}" class="btn btn-outline-primary position-absolute top-0 end-0 m-3">
+                🛍️ Twój Koszyk
+            </a>
+        </div>
         <div class="container">
             <div class="display-1 mb-3">⚕</div>
             
             <h1 class="display-4 fw-bold text-primary">BazaM</h1>
             <p class="lead text-muted mb-5">
-                Wizyty jak chcesz i kiedy chcesz!
+                Wizyty jak chcesz i kiedy chcesz!(no prawie)
             </p>
 
             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
@@ -38,7 +45,7 @@
                     Zobacz Lekarzy
                 </a>
 
-                <a href="#" class="btn btn-primary btn-lg px-5">
+                <a href="{% url 'lista_zabiegow' %}" class="btn btn-primary btn-lg px-5">
                     Umów wizytę
                 </a>
             </div>
